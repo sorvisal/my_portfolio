@@ -15,9 +15,14 @@ export const profile: Profile = {
   },
   // TODO: add your real contact details.
   email: undefined,
+  photo: {
+    src: "/images/visalsor.png",
+    alt: "Portrait of Sor Visal",
+  },
   socials: [
     // { label: "GitHub", href: "https://github.com/your-username" },
   ],
+  // TODO: add the CV at public/resume/sor-visal-cv.pdf (or update this path).
   resumePath: "/resume/sor-visal-cv.pdf",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 };

@@ -18,7 +18,7 @@ const MENU_ID = "mobile-menu";
 export function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const activeSection = useActiveSection(sectionIds);
+  const activeSection = useActiveSection(sectionIds, isHome);
   const reduceMotion = useReducedMotion();
 
   const [scrolled, setScrolled] = useState(false);
@@ -41,12 +41,15 @@ export function Navbar() {
       }
     };
 
-    const previousOverflow = document.body.style.overflow;
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousHtmlOverflow = document.documentElement.style.overflow;
     document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
     document.addEventListener("keydown", onKeyDown);
 
     return () => {
-      document.body.style.overflow = previousOverflow;
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousHtmlOverflow;
       document.removeEventListener("keydown", onKeyDown);
     };
   }, [open]);
@@ -64,7 +67,7 @@ export function Navbar() {
         <Link
           href="/"
           onClick={closeMenu}
-          className="flex items-center gap-2.5 font-semibold tracking-tight"
+          className="inline-flex min-h-10 items-center gap-2.5 rounded-control font-semibold tracking-tight transition-colors hover:text-accent active:text-accent-hover"
           aria-label={`${profile.brand} — home`}
         >
           <span
@@ -86,9 +89,9 @@ export function Navbar() {
                     href={item.href}
                     aria-current={isActive ? "location" : undefined}
                     className={cn(
-                      "rounded-control px-3 py-2 text-sm font-medium transition-colors",
+                      "inline-flex h-10 items-center rounded-control px-3 text-sm font-medium transition-colors active:bg-surface",
                       isActive
-                        ? "bg-accent-soft text-accent"
+                        ? "bg-accent-soft text-accent active:bg-accent-soft"
                         : "text-muted hover:bg-surface hover:text-foreground",
                     )}
                   >
@@ -118,7 +121,7 @@ export function Navbar() {
             aria-expanded={open}
             aria-controls={MENU_ID}
             aria-label={open ? "Close menu" : "Open menu"}
-            className="inline-flex size-10 items-center justify-center rounded-control text-foreground transition-colors hover:bg-surface md:hidden"
+            className="inline-flex size-10 items-center justify-center rounded-control text-foreground transition-colors hover:bg-surface active:bg-surface md:hidden"
           >
             {open ? (
               <X className="size-5" aria-hidden="true" />
@@ -151,9 +154,9 @@ export function Navbar() {
                           onClick={closeMenu}
                           aria-current={isActive ? "location" : undefined}
                           className={cn(
-                            "block rounded-control px-3 py-3 text-base font-medium transition-colors",
+                            "flex min-h-12 items-center rounded-control px-3 text-base font-medium transition-colors active:bg-surface",
                             isActive
-                              ? "bg-accent-soft text-accent"
+                              ? "bg-accent-soft text-accent active:bg-accent-soft"
                               : "text-foreground hover:bg-surface",
                           )}
                         >
@@ -163,7 +166,13 @@ export function Navbar() {
                     );
                   })}
                 </ul>
-                <Button href={profile.resumePath} download size="lg" className="mt-4 w-full">
+                <Button
+                  href={profile.resumePath}
+                  download
+                  size="lg"
+                  className="mt-4 w-full"
+                  onClick={closeMenu}
+                >
                   <Download className="size-4" aria-hidden="true" />
                   Download CV
                 </Button>

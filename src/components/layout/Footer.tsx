@@ -23,7 +23,10 @@ export async function Footer() {
             <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
               {navItems.map((item) => (
                 <li key={item.sectionId}>
-                  <Link href={item.href} className="text-muted transition-colors hover:text-foreground">
+                  <Link
+                    href={item.href}
+                    className="inline-flex min-h-10 items-center text-muted transition-colors hover:text-foreground active:text-foreground"
+                  >
                     {item.label}
                   </Link>
                 </li>
@@ -32,7 +35,7 @@ export async function Footer() {
                 <a
                   href={profile.resumePath}
                   download
-                  className="text-muted transition-colors hover:text-foreground"
+                  className="inline-flex min-h-10 items-center text-muted transition-colors hover:text-foreground active:text-foreground"
                 >
                   Download CV
                 </a>
@@ -54,7 +57,7 @@ export async function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition-colors hover:text-foreground"
+                    className="inline-flex min-h-10 items-center transition-colors hover:text-foreground active:text-foreground"
                   >
                     {social.label}
                   </a>
@@ -64,7 +67,7 @@ export async function Footer() {
                 <li>
                   <a
                     href={`mailto:${profile.email}`}
-                    className="transition-colors hover:text-foreground"
+                    className="inline-flex min-h-10 items-center transition-colors hover:text-foreground active:text-foreground"
                   >
                     Email
                   </a>

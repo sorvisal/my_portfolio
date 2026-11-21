@@ -3,6 +3,12 @@ export interface SocialLink {
   href: string;
 }
 
+/** Local path, or a remote URL covered by next.config.ts image patterns. */
+export interface ImageAsset {
+  src: string;
+  alt: string;
+}
+
 export interface Education {
   school: string;
   degree: string;
@@ -18,6 +24,7 @@ export interface Profile {
   summary: string;
   education: Education;
   email?: string;
+  photo?: ImageAsset;
   socials: SocialLink[];
   resumePath: string;
   siteUrl: string;
@@ -48,12 +55,40 @@ export interface Project {
   links: ProjectLink[];
 }
 
+export type ExperienceKind = "employment" | "learning";
+
 export interface ExperienceItem {
-  company: string;
-  role: string;
+  id: string;
+  organization: string;
+  organizationLogo?: ImageAsset;
   period: string;
+  title: string;
+  description: string;
+  responsibilities: string[];
+  technologies: string[];
+  kind: ExperienceKind;
   location?: string;
-  highlights: string[];
+}
+
+export interface AcademicRecord {
+  id: string;
+  institution: string;
+  institutionLogo?: ImageAsset;
+  degree: string;
+  period: string;
+  status: string;
+  summary?: string;
+}
+
+export interface Certification {
+  id: string;
+  name: string;
+  issuer: string;
+  issueDate?: string;
+  expirationDate?: string;
+  credentialId?: string;
+  verificationUrl?: string;
+  certificateImage?: ImageAsset;
 }
 
 export interface NavItem {

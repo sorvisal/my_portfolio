@@ -3,6 +3,7 @@
 /* ---------- Design tokens ---------- */
 @theme {
   --color-background: #ffffff;
+  --color-hero-base: #fafafa;
   --color-surface: #f8fafc;
   --color-foreground: #0f172a;
   --color-muted: #64748b;
@@ -24,10 +25,92 @@
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
 }
 
+/* ---------- Hero visuals ---------- */
+@keyframes hero-glow-drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(1.5rem, -1rem, 0) scale(1.06);
+  }
+}
+
+.hero-glow {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+
+.hero-glow-blue {
+  background-image: radial-gradient(
+    circle at center,
+    rgb(37 99 235 / 0.2) 0%,
+    rgb(37 99 235 / 0.08) 38%,
+    transparent 72%
+  );
+}
+
+.hero-glow-indigo {
+  background-image: radial-gradient(
+    circle at center,
+    rgb(99 102 241 / 0.16) 0%,
+    rgb(99 102 241 / 0.06) 42%,
+    transparent 72%
+  );
+}
+
+.hero-glow-sky {
+  background-image: radial-gradient(
+    circle at center,
+    rgb(14 165 233 / 0.14) 0%,
+    rgb(14 165 233 / 0.05) 40%,
+    transparent 70%
+  );
+}
+
+.hero-glow-drift {
+  animation: hero-glow-drift 18s ease-in-out infinite alternate;
+}
+
+@layer utilities {
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(to right, rgb(15 23 42 / 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(15 23 42 / 0.045) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(
+      ellipse 70% 60% at 50% 38%,
+      #000 30%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse 70% 60% at 50% 38%,
+      #000 30%,
+      transparent 100%
+    );
+  }
+
+  .hero-gradient-text {
+    background-image: linear-gradient(
+      100deg,
+      var(--color-accent) 0%,
+      #4f46e5 52%,
+      var(--color-foreground) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
 /* ---------- Base ---------- */
 @layer base {
   html {
     scroll-padding-top: 5rem; /* offset for sticky navbar */
+    scrollbar-gutter: stable;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -63,5 +146,9 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .hero-glow-drift {
+    animation: none;
   }
 }

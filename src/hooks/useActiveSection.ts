@@ -2,11 +2,17 @@
 
 import { useEffect, useState } from "react";
 
-/** Returns the id of the section crossing the middle of the viewport. `ids` must be a stable reference. */
-export function useActiveSection(ids: readonly string[]): string | null {
+/**
+ * Returns the id of the section crossing the middle of the viewport.
+ * `ids` must be a stable reference. Pass `enabled = false` on routes where the
+ * sections do not exist (for example, standalone pages).
+ */
+export function useActiveSection(ids: readonly string[], enabled = true): string | null {
   const [active, setActive] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!enabled) return;
+
     const elements = ids
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
@@ -24,7 +30,7 @@ export function useActiveSection(ids: readonly string[]): string | null {
 
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, [ids]);
+  }, [enabled, ids]);
 
-  return active;
+  return enabled ? active : null;
 }

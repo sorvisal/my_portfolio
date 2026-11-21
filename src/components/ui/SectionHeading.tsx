@@ -12,10 +12,13 @@ export function SectionHeading({ id, eyebrow, title, description, className }: S
   return (
     <div className={cn("max-w-2xl", className)}>
       <p className="font-mono text-sm font-medium text-accent">{eyebrow}</p>
-      <h2 id={id} className="mt-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+      <h2
+        id={id}
+        className="mt-2 text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl"
+      >
         {title}
       </h2>
-      {description && <p className="mt-4 text-lg leading-relaxed text-muted">{description}</p>}
+      {description && <p className="mt-4 text-pretty text-lg leading-relaxed text-muted">{description}</p>}
     </div>
   );
 }
