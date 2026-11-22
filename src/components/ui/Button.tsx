@@ -21,10 +21,12 @@ type ButtonProps = BaseProps &
   );
 
 const variants: Record<Variant, string> = {
-  primary: "bg-accent text-white shadow-card hover:bg-accent-hover active:bg-accent-hover",
+  primary:
+    "bg-accent text-white shadow-card hover:bg-accent-hover hover:shadow-card-hover active:bg-accent-hover",
   secondary:
-    "border border-border bg-background text-foreground shadow-card hover:bg-surface active:bg-surface",
-  ghost: "text-muted hover:bg-surface hover:text-foreground active:bg-surface active:text-foreground",
+    "border border-border bg-surface text-foreground shadow-card hover:border-border-hover hover:bg-surface-secondary active:bg-surface-secondary",
+  ghost:
+    "text-muted hover:bg-surface-secondary hover:text-foreground active:bg-surface-secondary active:text-foreground",
 };
 
 const sizes: Record<Size, string> = {
@@ -34,7 +36,7 @@ const sizes: Record<Size, string> = {
 
 export function Button({ variant = "primary", size = "md", className, children, ...props }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center gap-2 rounded-control font-medium transition-colors",
+    "inline-flex items-center justify-center gap-2 rounded-control font-medium transition-[color,background-color,border-color,box-shadow]",
     "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
     "disabled:pointer-events-none disabled:opacity-50",
     variants[variant],

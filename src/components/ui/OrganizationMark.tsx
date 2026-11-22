@@ -19,7 +19,7 @@ export function OrganizationMark({ name, logo, icon = "building", className }: O
         width={48}
         height={48}
         className={cn(
-          "size-12 shrink-0 rounded-control border border-border bg-background object-contain p-1.5",
+          "size-12 shrink-0 rounded-control border border-border bg-surface object-contain p-1.5 shadow-card",
           className,
         )}
       />
@@ -32,7 +32,7 @@ export function OrganizationMark({ name, logo, icon = "building", className }: O
     <span
       aria-hidden="true"
       className={cn(
-        "flex size-12 shrink-0 items-center justify-center rounded-control border border-border bg-surface text-accent",
+        "flex size-12 shrink-0 items-center justify-center rounded-control border border-border bg-surface-secondary text-accent",
         className,
       )}
     >

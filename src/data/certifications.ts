@@ -1,5 +1,8 @@
 import type { Certification } from "@/types";
 
+
+
+
 /**
  * Only officially earned certifications belong here. Courses and self-study
  * are intentionally kept separate and must not be added to this list.

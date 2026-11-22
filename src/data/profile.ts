@@ -1,8 +1,8 @@
-import type { Profile } from "@/types";
+import type { Profile, SocialLinkConfig } from "@/types";
 
 export const profile: Profile = {
   name: "Sor Visal",
-  brand: "VisalSOR",
+  brand: "SOR VISAL",
   role: "Backend & DevOps Engineer",
   location: "Cambodia",
   headline: "Backend & DevOps Engineer",
@@ -22,7 +22,26 @@ export const profile: Profile = {
   socials: [
     // { label: "GitHub", href: "https://github.com/your-username" },
   ],
-  // TODO: add the CV at public/resume/sor-visal-cv.pdf (or update this path).
-  resumePath: "/resume/sor-visal-cv.pdf",
+  // Served from public/resume/My CV.pdf (space URL-encoded).
+  resumePath: "/resume/My%20CV.pdf",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 };
+
+export const socialLinks: SocialLinkConfig[] = [
+  {
+    name: "GitHub",
+    href: "https://github.com/sorvisal",
+    platform: "github",
+  },
+  // TODO: replace the placeholder URLs below with your real profiles.
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/YOUR-USERNAME/",
+    platform: "linkedin",
+  },
+  {
+    name: "Telegram",
+    href: "https://t.me/YOUR-USERNAME",
+    platform: "telegram",
+  },
+];

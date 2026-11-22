@@ -9,7 +9,7 @@ import { projects } from "@/data/projects";
 
 export function Projects() {
   return (
-    <Section id="projects" labelledBy="projects-heading">
+    <Section id="projects" labelledBy="projects-heading" background="glow">
       <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <SectionHeading
           id="projects-heading"

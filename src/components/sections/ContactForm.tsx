@@ -21,7 +21,7 @@ const contactSchema = z.object({
 type ContactValues = z.infer<typeof contactSchema>;
 
 const inputClasses =
-  "min-h-11 w-full rounded-control border border-border bg-background px-3.5 py-2.5 text-base shadow-card placeholder:text-muted focus-visible:border-accent aria-[invalid=true]:border-red-500";
+  "min-h-11 w-full rounded-control border border-border bg-surface px-3.5 py-2.5 text-base shadow-card placeholder:text-muted focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/15 aria-[invalid=true]:border-danger";
 
 interface FieldProps {
   id: string;
@@ -38,7 +38,7 @@ function Field({ id, label, error, children }: FieldProps) {
       </label>
       {children}
       {error && (
-        <p id={`${id}-error`} role="alert" className="mt-1.5 text-sm text-red-600">
+        <p id={`${id}-error`} role="alert" className="mt-1.5 text-sm text-danger">
           {error}
         </p>
       )}
@@ -68,7 +68,7 @@ export function ContactForm({ recipient }: { recipient?: string }) {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="space-y-5 rounded-card border border-border bg-background p-6 shadow-card"
+      className="space-y-5 rounded-card border border-border bg-surface p-6 shadow-card"
     >
       <Field id="name" label="Name" error={errors.name?.message}>
         <input

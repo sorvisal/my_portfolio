@@ -29,7 +29,7 @@ export function ExperienceEntry({ item, index }: ExperienceEntryProps) {
         aria-hidden="true"
         className={cn(
           "absolute left-[6px] top-2 size-3 rounded-full border sm:left-[10.875rem]",
-          isActive ? "border-accent bg-accent" : "border-border bg-background",
+          isActive ? "border-accent bg-accent" : "border-border bg-surface",
         )}
         initial={reduceMotion ? false : { scale: 0.85 }}
         animate={reduceMotion ? undefined : { scale: isActive ? 1.15 : 1 }}
@@ -46,7 +46,7 @@ export function ExperienceEntry({ item, index }: ExperienceEntryProps) {
       <Reveal delay={index * 0.05} className="pl-10 sm:pl-0">
         <article
           aria-labelledby={`experience-${item.id}-title`}
-          className="rounded-card border border-border bg-background p-6 shadow-card sm:p-7"
+          className="rounded-card border border-border bg-surface p-6 shadow-card transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-border-hover hover:shadow-card-hover motion-reduce:transform-none motion-reduce:transition-none sm:p-7"
         >
           <div className="flex items-start gap-4">
             <OrganizationMark

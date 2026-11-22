@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
-import { profile } from "@/data/profile";
+import { profile, socialLinks } from "@/data/profile";
 import { skillGroups } from "@/data/skills";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
@@ -61,8 +61,13 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: "light",
-  themeColor: "#ffffff",
+  themeColor: "#fafafa",
 };
+
+// Only publish configured real profiles in structured data; skip TODO placeholders.
+const realSocialUrls = socialLinks
+  .map((link) => link.href)
+  .filter((href) => !/your-username/i.test(href));
 
 const personJsonLd = {
   "@context": "https://schema.org",
@@ -81,9 +86,7 @@ const personJsonLd = {
   },
   knowsAbout: skillGroups.flatMap((group) => group.skills),
   ...(profile.email ? { email: profile.email } : {}),
-  ...(profile.socials.length > 0
-    ? { sameAs: profile.socials.map((social) => social.href) }
-    : {}),
+  ...(realSocialUrls.length > 0 ? { sameAs: realSocialUrls } : {}),
 };
 
 const personJsonLdString = JSON.stringify(personJsonLd).replace(/</g, "\\u003c");

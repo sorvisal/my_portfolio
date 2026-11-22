@@ -5,7 +5,7 @@ import type { Project } from "@/types";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group relative flex h-full flex-col rounded-card border border-border bg-background p-6 shadow-card transition-[box-shadow,border-color] hover:border-accent/30 hover:shadow-card-hover focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2">
+    <article className="group relative flex h-full flex-col rounded-card border border-border bg-surface p-6 shadow-card transition-[box-shadow,border-color,transform] duration-200 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-card-hover focus-within:ring-2 focus-within:ring-accent focus-within:ring-offset-2 focus-within:ring-offset-background motion-reduce:transform-none motion-reduce:transition-none">
       <Badge variant="accent" className="self-start">
         {project.category}
       </Badge>
@@ -14,7 +14,7 @@ export function ProjectCard({ project }: { project: Project }) {
         {/* Stretched link: the whole card is clickable, with one accessible link name. */}
         <Link
           href={`/projects/${project.slug}`}
-          className="rounded-control after:absolute after:inset-0 after:rounded-card focus-visible:outline-none"
+          className="rounded-control after:absolute after:inset-0 after:rounded-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           {project.name}
         </Link>
@@ -35,7 +35,7 @@ export function ProjectCard({ project }: { project: Project }) {
       <span className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-accent">
         View details
         <ArrowUpRight
-          className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+          className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none"
           aria-hidden="true"
         />
       </span>

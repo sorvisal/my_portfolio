@@ -33,7 +33,7 @@ export function ProjectFilter({ projects }: { projects: Project[] }) {
                 "inline-flex min-h-10 items-center rounded-full border px-4 text-sm font-medium transition-colors",
                 isActive
                   ? "border-accent bg-accent text-white hover:bg-accent-hover active:bg-accent-hover"
-                  : "border-border bg-background text-muted hover:bg-surface hover:text-foreground active:bg-surface",
+                  : "border-border bg-surface text-muted hover:border-border-hover hover:bg-surface-secondary hover:text-foreground active:bg-surface-secondary",
               )}
             >
               {category}

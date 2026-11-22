@@ -9,7 +9,7 @@ export function Experience() {
   if (experience.length === 0) return null;
 
   return (
-    <Section id="experience" labelledBy="experience-heading" tone="surface">
+    <Section id="experience" labelledBy="experience-heading" tone="surface" background="subtle">
       <Reveal>
         <SectionHeading
           id="experience-heading"

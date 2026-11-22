@@ -7,7 +7,7 @@ import { getSectionNumber } from "@/data/navigation";
 
 export function Education() {
   return (
-    <Section id="education" labelledBy="education-heading">
+    <Section id="education" labelledBy="education-heading" background="glow">
       <Reveal>
         <SectionHeading
           id="education-heading"
@@ -18,7 +18,7 @@ export function Education() {
       </Reveal>
 
       <Reveal delay={0.05}>
-        <h3 className="mt-10 text-lg font-semibold tracking-tight">Academic background</h3>
+        <p className="mt-10 text-lg font-semibold tracking-tight">Academic background</p>
       </Reveal>
 
       {academicBackground.map((record) => (

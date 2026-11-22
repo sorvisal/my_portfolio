@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { navItems } from "@/data/navigation";
-import { profile } from "@/data/profile";
+import { profile, socialLinks } from "@/data/profile";
 
 export async function Footer() {
   "use cache";
@@ -49,17 +49,18 @@ export async function Footer() {
             © {year} {profile.name}. All rights reserved.
           </p>
 
-          {(profile.socials.length > 0 || profile.email) && (
+          {(socialLinks.length > 0 || profile.email) && (
             <ul className="flex flex-wrap gap-x-5 gap-y-2">
-              {profile.socials.map((social) => (
-                <li key={social.label}>
+              {socialLinks.map((social) => (
+                <li key={social.platform}>
                   <a
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-10 items-center transition-colors hover:text-foreground active:text-foreground"
+                    aria-label={`${social.name} profile (opens in a new tab)`}
+                    className="inline-flex min-h-10 items-center transition-colors hover:text-accent active:text-accent"
                   >
-                    {social.label}
+                    {social.name}
                   </a>
                 </li>
               ))}
@@ -67,7 +68,7 @@ export async function Footer() {
                 <li>
                   <a
                     href={`mailto:${profile.email}`}
-                    className="inline-flex min-h-10 items-center transition-colors hover:text-foreground active:text-foreground"
+                    className="inline-flex min-h-10 items-center transition-colors hover:text-accent active:text-accent"
                   >
                     Email
                   </a>

@@ -8,7 +8,7 @@ export function AcademicBackground({ record }: { record: AcademicRecord }) {
     <Reveal className="mt-6">
       <article
         aria-labelledby={`academic-${record.id}-title`}
-        className="rounded-card border border-border bg-background shadow-card"
+        className="rounded-card border border-border bg-surface shadow-card"
       >
         <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1fr_auto] lg:items-start">
           <div className="flex items-start gap-5">

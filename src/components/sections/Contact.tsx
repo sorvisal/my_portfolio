@@ -8,7 +8,7 @@ import { profile } from "@/data/profile";
 
 export function Contact() {
   return (
-    <Section id="contact" labelledBy="contact-heading">
+    <Section id="contact" labelledBy="contact-heading" tone="canvas" background="glow">
       <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
         <Reveal>
           <SectionHeading

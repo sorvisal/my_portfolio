@@ -1,9 +1,11 @@
-import { ArrowRight, ArrowUpRight, Download, MapPin } from "lucide-react";
+import { ArrowRight, Download, MapPin } from "lucide-react";
 import Image from "next/image";
 import { Reveal } from "@/components/animations/Reveal";
 import { Container } from "@/components/layout/Container";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { SectionBackground } from "@/components/ui/SectionBackground";
+import { SocialLinks } from "@/components/ui/SocialLinks";
 import { profile } from "@/data/profile";
 import { skillGroups } from "@/data/skills";
 import type { SkillCategoryId } from "@/types";
@@ -31,19 +33,7 @@ export function Hero() {
       aria-labelledby="hero-heading"
       className="relative isolate overflow-hidden bg-hero-base"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
-      >
-        <div className="hero-grid" />
-
-        <div className="hero-glow hero-glow-blue hero-glow-drift -left-24 -top-20 size-[22rem] blur-[80px] sm:left-[6%] sm:top-[8%] sm:size-[34rem] sm:blur-[120px]" />
-        <div className="hero-glow hero-glow-indigo hero-glow-drift -right-20 top-[18%] hidden size-[28rem] blur-[110px] sm:block lg:size-[36rem] lg:blur-[130px]" />
-        <div className="hero-glow hero-glow-sky bottom-[-18%] left-[30%] size-[20rem] blur-[80px] sm:size-[30rem] sm:blur-[120px]" />
-
-        <div className="absolute right-[12%] top-[22%] hidden size-24 rounded-full border border-accent/15 lg:block" />
-        <div className="absolute bottom-[18%] left-[10%] hidden size-3 rotate-45 border border-indigo-500/20 lg:block" />
-      </div>
+      <SectionBackground variant="hero" />
 
       <Container className="relative z-10 flex min-h-[calc(100svh-4rem)] max-w-7xl items-center py-12 sm:py-14 lg:py-14">
         <div className="grid w-full items-center gap-14 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-20">
@@ -51,7 +41,7 @@ export function Hero() {
             <div className="flex flex-wrap items-center gap-3">
               <Badge
                 variant="accent"
-                className="gap-2 border-accent/20 bg-white/70 px-3 py-1 backdrop-blur-sm"
+                className="gap-2 border-accent/20 bg-surface/80 px-3 py-1"
               >
                 <span className="size-1.5 rounded-full bg-accent" aria-hidden="true" />
                 {profile.role}
@@ -70,25 +60,10 @@ export function Hero() {
             <p className="mt-6 max-w-xl text-base leading-8 text-muted sm:text-lg">
               {profile.summary}
             </p>
-
-            <div className="mt-5 flex items-center gap-2 text-sm text-muted">
-              <MapPin className="size-4 text-accent" aria-hidden="true" />
-              {profile.location}
-            </div>
-
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Button href="/#projects" size="lg" className="w-full sm:w-auto">
                 View Projects
                 <ArrowRight className="size-4" aria-hidden="true" />
-              </Button>
-              <Button
-                href="/#contact"
-                variant="secondary"
-                size="lg"
-                className="w-full sm:w-auto"
-              >
-                Contact Me
-                <ArrowUpRight className="size-4" aria-hidden="true" />
               </Button>
               <Button
                 href={profile.resumePath}
@@ -101,17 +76,27 @@ export function Hero() {
                 <Download className="size-4" aria-hidden="true" />
               </Button>
             </div>
+
+            <SocialLinks className="mt-8" />
+
+            {/* <ul className="mt-6 flex flex-wrap gap-2" aria-label="Core technologies">
+              {heroSkills.map((skill) => (
+                <li key={skill}>
+                  <Badge>{skill}</Badge>
+                </li>
+              ))}
+            </ul> */}
           </Reveal>
 
           <Reveal delay={0.12} className="w-full">
             <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
               <div
                 aria-hidden="true"
-                className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-accent/10 via-transparent to-indigo-500/10 blur-2xl"
+                className="absolute -inset-6 rounded-card bg-gradient-to-br from-accent/10 via-transparent to-accent-indigo/10 blur-2xl"
               />
 
-              <div className="relative rounded-[2rem] border border-border/80 bg-white/60 p-3 shadow-card backdrop-blur-sm">
-                <div className="relative overflow-hidden rounded-[1.5rem] border border-border bg-surface">
+              <div className="relative rounded-card border border-border bg-surface p-3 shadow-card">
+                <div className="relative overflow-hidden rounded-control border border-border bg-surface-secondary">
                   {profile.photo && (
                     <Image
                       src={profile.photo.src}
@@ -123,7 +108,7 @@ export function Hero() {
                       className="aspect-[4/5] w-full object-cover object-top"
                     />
                   )}
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-white via-white/85 to-transparent px-5 pb-5 pt-20">
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-surface via-surface/90 to-transparent px-5 pb-5 pt-20">
                     <p className="text-lg font-semibold tracking-tight text-foreground">
                       {profile.name}
                     </p>
@@ -135,10 +120,6 @@ export function Hero() {
               <div
                 aria-hidden="true"
                 className="absolute -right-4 top-8 hidden size-24 rounded-full border border-accent/20 lg:block"
-              />
-              <div
-                aria-hidden="true"
-                className="absolute -bottom-5 -left-4 hidden size-16 rotate-45 rounded-lg border border-indigo-500/20 lg:block"
               />
             </div>
           </Reveal>

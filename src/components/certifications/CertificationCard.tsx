@@ -14,7 +14,7 @@ export function CertificationCard({ certification }: { certification: Certificat
   ].filter((detail): detail is { label: string; value: string } => detail !== null);
 
   return (
-    <article className="group flex h-full flex-col rounded-card border border-border bg-background p-6 shadow-card transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-card-hover motion-reduce:transform-none motion-reduce:transition-none">
+    <article className="group flex h-full flex-col rounded-card border border-border bg-surface p-6 shadow-card transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-card-hover motion-reduce:transform-none motion-reduce:transition-none">
       <div className="flex items-start justify-between gap-4">
         {certification.certificateImage ? (
           <Image
@@ -27,7 +27,7 @@ export function CertificationCard({ certification }: { certification: Certificat
         ) : (
           <span
             aria-hidden="true"
-            className="flex size-12 shrink-0 items-center justify-center rounded-control border border-border bg-surface text-accent"
+            className="flex size-12 shrink-0 items-center justify-center rounded-control border border-border bg-surface-secondary text-accent"
           >
             <Award className="size-5" />
           </span>

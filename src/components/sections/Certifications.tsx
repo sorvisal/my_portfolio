@@ -8,7 +8,7 @@ import { getSectionNumber } from "@/data/navigation";
 
 export function Certifications() {
   return (
-    <Section id="certifications" labelledBy="certifications-heading" tone="surface">
+    <Section id="certifications" labelledBy="certifications-heading" tone="surface" background="subtle">
       <Reveal>
         <SectionHeading
           id="certifications-heading"

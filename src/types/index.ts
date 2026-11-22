@@ -3,7 +3,15 @@ export interface SocialLink {
   href: string;
 }
 
-/** Local path, or a remote URL covered by next.config.ts image patterns. */
+export type SocialPlatform = "github" | "linkedin" | "telegram";
+
+export interface SocialLinkConfig {
+  name: string;
+  href: string;
+  platform: SocialPlatform;
+}
+
+/** Local path to an image served from public/. */
 export interface ImageAsset {
   src: string;
   alt: string;

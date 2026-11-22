@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { Download, Menu, X } from "lucide-react";
+import { Download, Menu, X, MessageCircle } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { useActiveSection } from "@/hooks/useActiveSection";
@@ -59,7 +59,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b bg-background/80 backdrop-blur-md transition-shadow",
+        "sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md transition-[border-color,box-shadow]",
         scrolled ? "border-border shadow-card" : "border-transparent",
       )}
     >
@@ -89,10 +89,10 @@ export function Navbar() {
                     href={item.href}
                     aria-current={isActive ? "location" : undefined}
                     className={cn(
-                      "inline-flex h-10 items-center rounded-control px-3 text-sm font-medium transition-colors active:bg-surface",
+                      "inline-flex h-10 items-center rounded-control px-3 text-sm font-medium transition-colors active:bg-surface-secondary",
                       isActive
                         ? "bg-accent-soft text-accent active:bg-accent-soft"
-                        : "text-muted hover:bg-surface hover:text-foreground",
+                        : "text-muted hover:bg-surface-secondary hover:text-foreground",
                     )}
                   >
                     {item.label}
@@ -104,14 +104,9 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button
-            href={profile.resumePath}
-            download
-            variant="secondary"
-            className="hidden md:inline-flex"
-          >
-            <Download className="size-4" aria-hidden="true" />
-            CV
+          <Button href="/#contact" variant="secondary" className="hidden md:inline-flex">
+            <MessageCircle className="size-4" aria-hidden="true" />
+            Contact
           </Button>
 
           <button
@@ -121,7 +116,7 @@ export function Navbar() {
             aria-expanded={open}
             aria-controls={MENU_ID}
             aria-label={open ? "Close menu" : "Open menu"}
-            className="inline-flex size-10 items-center justify-center rounded-control text-foreground transition-colors hover:bg-surface active:bg-surface md:hidden"
+            className="inline-flex size-10 items-center justify-center rounded-control text-foreground transition-colors hover:bg-surface-secondary active:bg-surface-secondary md:hidden"
           >
             {open ? (
               <X className="size-5" aria-hidden="true" />
@@ -154,10 +149,10 @@ export function Navbar() {
                           onClick={closeMenu}
                           aria-current={isActive ? "location" : undefined}
                           className={cn(
-                            "flex min-h-12 items-center rounded-control px-3 text-base font-medium transition-colors active:bg-surface",
+                            "flex min-h-12 items-center rounded-control px-3 text-base font-medium transition-colors active:bg-surface-secondary",
                             isActive
                               ? "bg-accent-soft text-accent active:bg-accent-soft"
-                              : "text-foreground hover:bg-surface",
+                              : "text-foreground hover:bg-surface-secondary",
                           )}
                         >
                           {item.label}

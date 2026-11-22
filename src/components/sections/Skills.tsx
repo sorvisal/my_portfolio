@@ -17,7 +17,7 @@ const icons: Record<SkillCategoryId, LucideIcon> = {
 
 export function Skills() {
   return (
-    <Section id="skills" labelledBy="skills-heading" tone="surface">
+    <Section id="skills" labelledBy="skills-heading" tone="surface" background="subtle">
       <Reveal>
         <SectionHeading
           id="skills-heading"
@@ -32,7 +32,7 @@ export function Skills() {
           const Icon = icons[group.id];
           return (
             <Reveal key={group.id} delay={index * 0.05}>
-              <div className="h-full rounded-card border border-border bg-background p-6 shadow-card">
+              <div className="h-full rounded-card border border-border bg-surface p-6 shadow-card transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-border-hover hover:shadow-card-hover motion-reduce:transform-none motion-reduce:transition-none">
                 <div className="flex items-center gap-3">
                   <span className="flex size-9 items-center justify-center rounded-control bg-accent-soft text-accent">
                     <Icon className="size-5" aria-hidden="true" />

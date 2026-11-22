@@ -4,7 +4,7 @@ import { Reveal } from "@/components/animations/Reveal";
 export function CertificationsEmptyState() {
   return (
     <Reveal className="mt-10">
-      <div className="rounded-card border border-dashed border-border bg-background p-6 sm:p-8">
+      <div className="rounded-card border border-dashed border-border bg-surface p-6 sm:p-8">
         <div className="flex items-start gap-4">
           <span
             aria-hidden="true"
