@@ -23,7 +23,7 @@ export const profile: Profile = {
     // { label: "GitHub", href: "https://github.com/your-username" },
   ],
   // Served from public/resume/My CV.pdf (space URL-encoded).
-  resumePath: "/resume/My%20CV.pdf",
+  resumePath: "/resume/sor-visal-cv.pdf",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
 };
 

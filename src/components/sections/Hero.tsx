@@ -66,15 +66,15 @@ export function Hero() {
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Button>
               <Button
-                href={profile.resumePath}
-                download
-                variant="ghost"
-                size="lg"
-                className="w-full sm:w-auto"
-              >
-                Download CV
-                <Download className="size-4" aria-hidden="true" />
-              </Button>
+              href={profile.resumePath}
+              download="Sor-Visal-CV.pdf"
+              variant="ghost"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
+              Download CV
+              <Download className="size-4" aria-hidden="true" />
+            </Button>
             </div>
 
             <SocialLinks className="mt-8" />
