@@ -21,7 +21,11 @@ export function About() {
           {profile.name} is a {profile.role} based in {profile.location}. {profile.summary}
         </p>
         <TerminalCard
-          prompt={`${profile.brand.toLowerCase()}@portfolio:~`}
+         prompt={`${profile.brand.toLowerCase().replace(/\s+/g, "")}@portfolio:~`}
+          durationMs={5000}
+          holdMs={7000}
+          clearTypeMs={700}
+          clearedMs={600}
           lines={[
             { command: "whoami", output: profile.name },
             { command: "echo $ROLE", output: profile.role },

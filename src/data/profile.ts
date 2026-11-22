@@ -4,10 +4,10 @@ export const profile: Profile = {
   name: "Sor Visal",
   brand: "SOR VISAL",
   role: "Backend & DevOps Engineer",
-  location: "Cambodia",
+  location: "Phnom Penh, Cambodia",
   headline: "Backend & DevOps Engineer",
   summary:
-    "A software developer transitioning toward DevOps Engineering, with experience in C#, ASP.NET Core, SQL Server, backend development, Linux server administration, Docker, and CI/CD automation.",
+    "A software developer transitioning toward DevOps Engineering, with experience in C#, ASP.NET Core, EF Core, ORM, Laravel, backend development, Linux server administration, Docker, and CI/CD automation. Knowledge of Application Security and Secure SDLC, with an interest in building secure, reliable, and maintainable software systems.",
   education: {
     school: "Asia Euro University (AEU)",
     degree: "Bachelor's Degree", // TODO: confirm your degree level

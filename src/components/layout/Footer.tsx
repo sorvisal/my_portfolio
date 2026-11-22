@@ -31,15 +31,18 @@ export async function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <a
-                  href={profile.resumePath}
-                  download
-                  className="inline-flex min-h-10 items-center text-muted transition-colors hover:text-foreground active:text-foreground"
-                >
-                  Download CV
-                </a>
-              </li>
+              {profile.resumePath && (
+                <li>
+                  <a
+                    href={profile.resumePath}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-10 items-center text-muted transition-colors hover:text-foreground active:text-foreground"
+                  >
+                    View CV
+                  </a>
+                </li>
+              )}
             </ul>
           </nav>
         </div>

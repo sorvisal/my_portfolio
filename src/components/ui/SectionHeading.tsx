@@ -1,3 +1,4 @@
+import { TypedText } from "@/components/animations/TypedText";
 import { cn } from "@/lib/utils";
 
 interface SectionHeadingProps {
@@ -12,7 +13,7 @@ export function SectionHeading({ id, eyebrow, title, description, className }: S
   return (
     <div className={cn("max-w-2xl", className)}>
       <p className="font-mono text-xs font-medium uppercase tracking-[0.16em] text-accent">
-        {eyebrow}
+        <TypedText text={eyebrow} />
       </p>
       <h2
         id={id}

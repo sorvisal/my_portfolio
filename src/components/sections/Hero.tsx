@@ -1,4 +1,4 @@
-import { ArrowRight, Download, MapPin } from "lucide-react";
+import { ArrowRight, ExternalLink, MapPin } from "lucide-react";
 import Image from "next/image";
 import { Reveal } from "@/components/animations/Reveal";
 import { Container } from "@/components/layout/Container";
@@ -65,16 +65,18 @@ export function Hero() {
                 View Projects
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Button>
-              <Button
-              href={profile.resumePath}
-              download="Sor-Visal-CV.pdf"
-              variant="ghost"
-              size="lg"
-              className="w-full sm:w-auto"
-            >
-              Download CV
-              <Download className="size-4" aria-hidden="true" />
-            </Button>
+              {profile.resumePath && (
+                <Button
+                  href={profile.resumePath}
+                  target="_blank"
+                  variant="ghost"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                >
+                  View CV
+                  <ExternalLink className="size-4" aria-hidden="true" />
+                </Button>
+              )}
             </div>
 
             <SocialLinks className="mt-8" />

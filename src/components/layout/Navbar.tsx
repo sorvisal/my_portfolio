@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { Download, Menu, X, MessageCircle } from "lucide-react";
+import { ExternalLink, Menu, X, MessageCircle } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/Button";
 import { useActiveSection } from "@/hooks/useActiveSection";
@@ -161,16 +161,18 @@ export function Navbar() {
                     );
                   })}
                 </ul>
-                <Button
-                  href={profile.resumePath}
-                  download
-                  size="lg"
-                  className="mt-4 w-full"
-                  onClick={closeMenu}
-                >
-                  <Download className="size-4" aria-hidden="true" />
-                  Download CV
-                </Button>
+                {profile.resumePath && (
+                  <Button
+                    href={profile.resumePath}
+                    target="_blank"
+                    size="lg"
+                    className="mt-4 w-full"
+                    onClick={closeMenu}
+                  >
+                    <ExternalLink className="size-4" aria-hidden="true" />
+                    View CV
+                  </Button>
+                )}
               </nav>
             </Container>
           </motion.div>

@@ -47,14 +47,15 @@ export function Button({ variant = "primary", size = "md", className, children, 
   if ("href" in props && props.href) {
     const { href, download, target, rel, ...rest } = props;
     const isExternal = /^https?:\/\//.test(href);
+    const opensNewTab = isExternal || target === "_blank";
 
-    if (isExternal || download) {
+    if (isExternal || download || opensNewTab) {
       return (
         <a
           href={href}
           download={download}
-          target={isExternal ? "_blank" : target}
-          rel={isExternal ? "noopener noreferrer" : rel}
+          target={opensNewTab ? "_blank" : target}
+          rel={opensNewTab ? "noopener noreferrer" : rel}
           className={classes}
           {...rest}
         >
