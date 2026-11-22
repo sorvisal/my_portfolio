@@ -10,5 +10,9 @@ export const academicBackground: AcademicRecord[] = [
     status: "Year 4 / Final-year student",
     summary:
       "Final-year Computer Science student focused on backend development and relational databases.",
+    institutionLogo: {
+      src: "/images/organizations/aeu-logo.png",
+      alt: "Asia Euro University (AEU) logo",
+    },
   },
 ];

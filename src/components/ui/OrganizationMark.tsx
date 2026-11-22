@@ -16,10 +16,10 @@ export function OrganizationMark({ name, logo, icon = "building", className }: O
       <Image
         src={logo.src}
         alt={logo.alt ?? `${name} logo`}
-        width={48}
-        height={48}
+        width={90}
+        height={90}
         className={cn(
-          "size-12 shrink-0 rounded-control border border-border bg-surface object-contain p-1.5 shadow-card",
+          "size-16 shrink-0 rounded-control border border-border bg-surface object-contain p-1.5 shadow-card",
           className,
         )}
       />
