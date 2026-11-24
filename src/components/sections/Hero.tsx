@@ -30,12 +30,13 @@ const heroSkills = heroSkillOrder.flatMap((id) => {
 export function Hero() {
   return (
     <section
+      id="home"
       aria-labelledby="hero-heading"
       className="relative isolate overflow-hidden bg-hero-base"
     >
       <SectionBackground variant="hero" />
 
-      <Container className="relative z-10 flex min-h-[calc(100svh-4rem)] max-w-7xl items-center py-12 sm:py-14 lg:py-14">
+      <Container className="relative z-10 flex min-h-[100svh] max-w-7xl items-center pb-12 pt-24 sm:pb-14 sm:pt-24 lg:pb-14 lg:pt-16">
         <div className="grid w-full items-center gap-14 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-20">
           <Reveal className="w-full max-w-2xl">
             <div className="flex flex-wrap items-center gap-3">
@@ -67,7 +68,7 @@ export function Hero() {
               </Button>
               {profile.resumePath && (
                 <Button
-                  href={profile.resumePath}
+                  // href={profile.resumePath}
                   target="_blank"
                   variant="ghost"
                   size="lg"
@@ -91,13 +92,13 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={0.12} className="w-full">
-            <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
+            <div className="relative mx-auto w-full max-w-[19rem] sm:max-w-[21rem] lg:max-w-[20rem] xl:max-w-[27rem]">
               <div
                 aria-hidden="true"
                 className="absolute -inset-6 rounded-card bg-gradient-to-br from-accent/10 via-transparent to-accent-indigo/10 blur-2xl"
               />
 
-              <div className="relative rounded-card border border-border bg-surface p-3 shadow-card">
+              <div className="relative rounded-card border border-border bg-surface p-2.5 shadow-card">
                 <div className="relative overflow-hidden rounded-control border border-border bg-surface-secondary">
                   {profile.photo && (
                     <Image

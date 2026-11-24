@@ -46,7 +46,7 @@ export interface SkillGroup {
   skills: string[];
 }
 
-export type ProjectCategory = "Cloud & DevOps" | "Web Platform" | "Database" | "Enterprise";
+export type ProjectCategory = "Cloud & DevOps" | "Web Platform" | "Mobile App" | "System & Enterprise";
 
 export interface ProjectLink {
   label: string;
@@ -61,6 +61,7 @@ export interface Project {
   description: string;
   technologies: string[];
   links: ProjectLink[];
+  repositoryUrl?: string;
 }
 
 export type ExperienceKind = "employment" | "learning";

@@ -30,6 +30,16 @@ export const navItems: NavItem[] = sections
   .filter((section) => section.visible)
   .map(({ label, href, sectionId }) => ({ label, href, sectionId }));
 
+/** Home is a navigation destination, but not a numbered content section. */
+export const homeNavItem: NavItem = {
+  label: "Home",
+  href: "/#home",
+  sectionId: "home",
+};
+
+/** Complete navbar order, including the hero/home link. */
+export const navbarItems: NavItem[] = [homeNavItem, ...navItems];
+
 /** Two-digit section number based on the visible section order. */
 export function getSectionNumber(sectionId: string): string {
   const index = navItems.findIndex((item) => item.sectionId === sectionId);

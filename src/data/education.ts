@@ -1,15 +1,16 @@
+
 import type { AcademicRecord } from "@/types";
 
-/** Academic background. Add an institutionLogo when an official asset is available. */
+/** Academic background. */
 export const academicBackground: AcademicRecord[] = [
   {
     id: "aeu-computer-science",
     institution: "Asia Euro University (AEU)",
-    degree: "Computer Science",
-    period: "Ongoing",
-    status: "Year 4 / Final-year student",
+    degree: "B.S. in Computer Science",
+    period: "2023 - Present",
+    status: "Year 4 / S2",
     summary:
-      "Final-year Computer Science student focused on backend development and relational databases.",
+      "C++/C#, Java, Python, PHP, SQL Server, ASP.NET Core, Mobile/Web Development, Network Security, Opensource ( Linux Server Administration, Red Hat Linux)",
     institutionLogo: {
       src: "/images/organizations/aeu-logo.png",
       alt: "Asia Euro University (AEU) logo",

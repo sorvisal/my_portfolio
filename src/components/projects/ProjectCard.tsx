@@ -1,6 +1,5 @@
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
+import { GithubIcon } from "@/components/ui/GithubIcon";
 import type { Project } from "@/types";
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -10,15 +9,19 @@ export function ProjectCard({ project }: { project: Project }) {
         {project.category}
       </Badge>
 
-      <h3 className="mt-4 text-xl font-semibold tracking-tight">
-        {/* Stretched link: the whole card is clickable, with one accessible link name. */}
-        <Link
-          href={`/projects/${project.slug}`}
-          className="rounded-control after:absolute after:inset-0 after:rounded-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+      {project.repositoryUrl && (
+        <a
+          href={project.repositoryUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${project.name} repository on GitHub (opens in a new tab)`}
+          className="absolute right-4 top-4 inline-flex size-10 items-center justify-center rounded-control border border-border bg-surface-secondary text-muted transition-[color,background-color,border-color] duration-200 hover:border-border-hover hover:bg-surface hover:text-accent active:bg-surface active:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
-          {project.name}
-        </Link>
-      </h3>
+          <GithubIcon className="size-5 shrink-0" aria-hidden="true" />
+        </a>
+      )}
+
+      <h3 className="mt-4 text-xl font-semibold tracking-tight">{project.name}</h3>
 
       <p className="mt-2 flex-1 leading-relaxed text-muted">{project.tagline}</p>
 
@@ -31,14 +34,6 @@ export function ProjectCard({ project }: { project: Project }) {
           ))}
         </ul>
       )}
-
-      <span className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-accent">
-        View details
-        <ArrowUpRight
-          className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none"
-          aria-hidden="true"
-        />
-      </span>
     </article>
   );
 }

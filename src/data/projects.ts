@@ -10,6 +10,7 @@ export const projects: Project[] = [
     description: "Autonomous (A8S) is a cloud-native deployment platform.",
     technologies: [],
     links: [],
+    // TODO: add real GitHub repository URL
   },
   {
     slug: "zestream",
@@ -19,25 +20,28 @@ export const projects: Project[] = [
     description: "ZeStream is a livestream and donation platform.",
     technologies: [],
     links: [],
+    // TODO: add real GitHub repository URL
   },
-  {
-    slug: "dbm-system",
-    name: "DBM System",
-    category: "Database",
-    tagline: "Database management system.",
-    description: "DBM System is a database management system.",
-    technologies: [],
-    links: [],
-  },
+{
+  slug: "dbm-app",
+  name: "Digital Business Management App",
+  category: "Mobile App",
+  tagline: "A mobile application for stock order and inventory management.",
+  description:
+    "DBM App is a mobile application developed for Youth21, focusing on order processing and inventory management to support daily business operations.",
+  technologies: [],
+  links: [],
+  // Funder: Youth21
+},
+
   {
     slug: "aeu-employee-update-system",
     name: "AEU Employee Update System",
-    category: "Enterprise",
+    category: "System & Enterprise",
     tagline: "Employee management application.",
     description: "The AEU Employee Update System is an employee management application.",
     technologies: [],
     links: [],
+    // TODO: add real GitHub repository URL
   },
 ];
-
-export const getProjectBySlug = (slug: string) => projects.find((p) => p.slug === slug);

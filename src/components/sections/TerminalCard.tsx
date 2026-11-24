@@ -19,6 +19,7 @@ interface TerminalCardProps {
   clearTypeMs?: number;
   /** How long the screen stays empty before typing restarts. */
   clearedMs?: number;
+  enterPauseMs?: number;
 }
 
 const FRAME_MS = 40;
@@ -51,8 +52,9 @@ export function TerminalCard({
   lines,
   durationMs = 5000,
   holdMs = 7000,
-  clearTypeMs = 700,
-  clearedMs = 600,
+  clearTypeMs = 3000,
+  enterPauseMs = 300,
+  clearedMs = 500,
 }: TerminalCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const inView = useInView(cardRef, { margin: "-60px" }); // no `once`: pauses off screen
@@ -61,7 +63,8 @@ export function TerminalCard({
   const elapsedRef = useRef(0);
 
   const clearStartMs = durationMs + holdMs;
-  const clearedStartMs = clearStartMs + clearTypeMs;
+  const enterAtMs = clearStartMs + clearTypeMs;
+  const clearedStartMs = enterAtMs + enterPauseMs;
   const cycleMs = clearedStartMs + clearedMs;
 
   useEffect(() => {

@@ -160,7 +160,7 @@
 /* ---------- Base ---------- */
 @layer base {
   html {
-    scroll-padding-top: 5rem; /* offset for sticky navbar */
+    scroll-padding-top: 5.25rem; /* offset for the fixed floating navbar */
     scrollbar-gutter: stable;
   }
 

@@ -7,7 +7,7 @@ import type { ExperienceItem } from "@/types";
 export const experience: ExperienceItem[] = [
     {
     id: "assistant-software-database",
-    organization: "Software Development and Database Management",
+    organization: "Software Development and Database Management Office",
     period: "2025 – Present", // TODO: replace with your real dates, e.g. "2023 – Present"
     title: "Assistant – Software Development & Database Management",
     description:

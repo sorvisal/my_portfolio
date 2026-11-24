@@ -39,7 +39,7 @@ export function ExperienceEntry({ item, index }: ExperienceEntryProps) {
       <div className="pl-10 sm:pl-0">
         <p className="font-mono text-sm text-muted sm:text-right">{item.period}</p>
         {item.kind === "learning" && (
-          <p className="mt-1 text-xs font-medium text-accent sm:text-right">Self-directed</p>
+          <p className="mt-1 text-xs font-medium text-accent sm:text-right"></p>
         )}
       </div>
 
@@ -57,9 +57,9 @@ export function ExperienceEntry({ item, index }: ExperienceEntryProps) {
             <div>
               <p className="text-sm font-medium text-accent">{item.organization}</p>
               {item.location && <p className="mt-0.5 text-sm text-muted">{item.location}</p>}
-              {item.kind === "learning" && (
-                <p className="mt-0.5 text-sm text-muted">Not an employment role</p>
-              )}
+                          <p className="mt-0.5 text-sm text-muted">
+                {item.kind === "learning" ? "Researcher" : "Full-time employee"}
+              </p>
             </div>
           </div>
 

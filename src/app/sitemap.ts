@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-import { projects } from "@/data/projects";
 import { absoluteUrl } from "@/lib/site";
 
 const routes: Array<{
@@ -16,18 +15,10 @@ const routes: Array<{
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    ...routes.map(({ path, changeFrequency, priority }) => ({
-      url: absoluteUrl(path),
-      lastModified: new Date(),
-      changeFrequency,
-      priority,
-    })),
-    ...projects.map((project) => ({
-      url: absoluteUrl(`/projects/${project.slug}`),
-      lastModified: new Date(),
-      changeFrequency: "yearly" as const,
-      priority: 0.6,
-    })),
-  ];
+  return routes.map(({ path, changeFrequency, priority }) => ({
+    url: absoluteUrl(path),
+    lastModified: new Date(),
+    changeFrequency,
+    priority,
+  }));
 }

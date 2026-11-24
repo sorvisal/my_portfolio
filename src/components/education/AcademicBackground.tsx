@@ -18,16 +18,16 @@ export function AcademicBackground({ record }: { record: AcademicRecord }) {
               icon="academic"
             />
             <div>
-              <p className="font-mono text-sm font-medium text-accent">Current programme</p>
+              {/* <p className="font-mono text-sm font-medium text-accent">Current programme</p> */}
               <h3
                 id={`academic-${record.id}-title`}
-                className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl"
+                className="mt-1 text-xl font-semibold tracking-tight sm:text-3xl"
               >
                 {record.degree}
               </h3>
-              <p className="mt-1 text-lg text-foreground">{record.institution}</p>
+              <p className="mt-1 text-base text-foreground">{record.institution}</p>
               {record.summary && (
-                <p className="mt-4 max-w-xl leading-relaxed text-muted">{record.summary}</p>
+                <p className="mt-2 max-w-xl leading-relaxed text-sm text-muted">{record.summary}</p>
               )}
             </div>
           </div>
