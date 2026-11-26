@@ -1,7 +1,6 @@
 import { About } from "@/components/sections/About";
-import { Certifications } from "@/components/sections/Certifications";
 import { Contact } from "@/components/sections/Contact";
-import { Education } from "@/components/sections/Education";
+import { EducationAndCertifications } from "@/components/sections/EducationAndCertifications";
 import { Experience } from "@/components/sections/Experience";
 import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
@@ -15,8 +14,7 @@ export default function HomePage() {
       <Skills />
       <Projects />
       <Experience />
-      <Education />
-      <Certifications />
+      <EducationAndCertifications />
       <Contact />
     </>
   );

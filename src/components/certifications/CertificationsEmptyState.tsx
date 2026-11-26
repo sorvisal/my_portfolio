@@ -3,7 +3,7 @@ import { Reveal } from "@/components/animations/Reveal";
 
 export function CertificationsEmptyState() {
   return (
-    <Reveal className="mt-10">
+    <Reveal className="mt-6">
       <div className="rounded-card border border-dashed border-border bg-surface p-6 sm:p-8">
         <div className="flex items-start gap-4">
           <span
@@ -13,7 +13,7 @@ export function CertificationsEmptyState() {
             <Award className="size-5" />
           </span>
           <div>
-            <h3 className="text-lg font-semibold tracking-tight">No credentials published yet</h3>
+            <h4 className="text-lg font-semibold tracking-tight">No credentials published yet</h4>
             <p className="mt-2 max-w-2xl leading-relaxed text-muted">
               Officially earned certifications will appear here with the issuer, issue date,
               validity, credential ID and a verification link.

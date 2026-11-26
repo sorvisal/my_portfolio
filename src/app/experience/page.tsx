@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Certifications } from "@/components/sections/Certifications";
-import { Education } from "@/components/sections/Education";
+import { EducationAndCertifications } from "@/components/sections/EducationAndCertifications";
 import { Experience } from "@/components/sections/Experience";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { createPageMetadata } from "@/lib/metadata";
@@ -20,8 +19,7 @@ export default function ExperiencePage() {
         description="Professional experience and academic background."
       />
       <Experience />
-      <Education />
-      <Certifications />
+      <EducationAndCertifications />
     </>
   );
 }

@@ -16,12 +16,6 @@ const sections: SectionConfig[] = [
     visible: experience.length > 0,
   },
   { label: "Education", href: "/#education", sectionId: "education", visible: true },
-  // {
-  //   label: "Certifications",
-  //   href: "/#certifications",
-  //   sectionId: "certifications",
-  //   visible: true,
-  // },
   { label: "Contact", href: "/#contact", sectionId: "contact", visible: true },
 ];
 

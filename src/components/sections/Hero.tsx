@@ -52,7 +52,7 @@ export function Hero() {
 
             <h1
               id="hero-heading"
-              className="mt-7 text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-foreground sm:text-6xl lg:text-7xl"
+              className="mt-7 text-balance text-4xl font-semibold leading-[1.05] tracking-[-0.03em] text-foreground sm:text-6xl lg:text-7xl"
             >
               <span className="block">Building Reliable</span>
               <span className="hero-gradient-text block">Digital Systems.</span>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { About } from "@/components/sections/About";
-import { Education } from "@/components/sections/Education";
+import { EducationAndCertifications } from "@/components/sections/EducationAndCertifications";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { profile } from "@/data/profile";
 import { createPageMetadata } from "@/lib/metadata";
@@ -21,7 +21,7 @@ export default function AboutPage() {
         description={`${profile.role} based in ${profile.location}.`}
       />
       <About />
-      <Education />
+      <EducationAndCertifications />
     </>
   );
 }

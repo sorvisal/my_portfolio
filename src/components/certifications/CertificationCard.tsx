@@ -1,63 +1,73 @@
 import Image from "next/image";
-import { Award, ExternalLink } from "lucide-react";
+import { ArrowUpRight, ShieldCheck } from "lucide-react";
+import { formatMonthYear } from "@/lib/utils";
 import type { Certification } from "@/types";
 
 export function CertificationCard({ certification }: { certification: Certification }) {
-  const details = [
-    certification.issueDate ? { label: "Issued", value: certification.issueDate } : null,
-    certification.expirationDate
-      ? { label: "Valid through", value: certification.expirationDate }
-      : null,
-    certification.credentialId
-      ? { label: "Credential ID", value: certification.credentialId }
-      : null,
-  ].filter((detail): detail is { label: string; value: string } => detail !== null);
+  const {
+    id,
+    name,
+    issuer,
+    credentialId,
+    issueDate,
+    expirationDate,
+    certificateImage,
+    verificationUrl,
+  } = certification;
+
+  const meta = [
+    credentialId,
+    expirationDate
+      ? `valid through ${formatMonthYear(expirationDate)}`
+      : issueDate
+        ? `issued ${formatMonthYear(issueDate)}`
+        : null,
+  ]
+    .filter(Boolean)
+    .join(" · ");
 
   return (
-    <article className="group flex h-full flex-col rounded-card border border-border bg-surface p-6 shadow-card transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-accent/30 hover:shadow-card-hover motion-reduce:transform-none motion-reduce:transition-none">
-      <div className="flex items-start justify-between gap-4">
-        {certification.certificateImage ? (
-          <Image
-            src={certification.certificateImage.src}
-            alt={certification.certificateImage.alt ?? `${certification.name} certificate`}
-            width={48}
-            height={48}
-            className="size-12 rounded-control border border-border object-contain p-1.5"
-          />
-        ) : (
-          <span
-            aria-hidden="true"
-            className="flex size-12 shrink-0 items-center justify-center rounded-control border border-border bg-surface-secondary text-accent"
-          >
-            <Award className="size-5" />
-          </span>
-        )}
-        <span className="font-mono text-xs uppercase tracking-wider text-muted">Credential</span>
-      </div>
-
-      <h3 className="mt-5 text-lg font-semibold tracking-tight">{certification.name}</h3>
-      <p className="mt-1 text-muted">{certification.issuer}</p>
-
-      {details.length > 0 && (
-        <dl className="mt-5 grid gap-3 border-t border-border pt-4 text-sm">
-          {details.map((detail) => (
-            <div key={detail.label} className="flex items-baseline justify-between gap-4">
-              <dt className="text-muted">{detail.label}</dt>
-              <dd className="text-right font-medium">{detail.value}</dd>
-            </div>
-          ))}
-        </dl>
+    <article
+      aria-labelledby={`certification-${id}-title`}
+      className="flex h-full flex-col rounded-card border border-border bg-background p-5 transition-[border-color,box-shadow] duration-200 hover:border-accent/30 hover:shadow-card-hover motion-reduce:transition-none"
+    >
+      {certificateImage ? (
+        <Image
+          src={certificateImage.src}
+          alt={certificateImage.alt ?? `${name} logo`}
+          width={104}
+          height={104}
+          className="size-13 rounded-control border border-border bg-background object-contain p-1.5"
+        />
+      ) : (
+        <span
+          aria-hidden="true"
+          className="flex size-13 items-center justify-center rounded-control border border-border bg-accent-soft text-accent"
+        >
+          <ShieldCheck className="size-6" />
+        </span>
       )}
 
-      {certification.verificationUrl && (
+      <h4
+        id={`certification-${id}-title`}
+        className="mt-5 break-words text-base font-semibold leading-snug tracking-tight"
+      >
+        {name}
+      </h4>
+      <p className="mt-1 text-sm text-muted">{issuer}</p>
+
+      {meta && <p className="mt-auto pt-4 font-mono text-xs leading-relaxed text-muted">{meta}</p>}
+
+      {verificationUrl && (
         <a
-          href={certification.verificationUrl}
+          href={verificationUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto inline-flex min-h-10 items-center gap-1.5 self-start pt-6 text-sm font-medium text-accent transition-colors hover:text-accent-hover hover:underline active:text-accent-hover"
+          aria-label={`Verify ${name} credential (opens in a new tab)`}
+          className="mt-3 inline-flex min-h-10 items-center gap-1.5 self-start text-sm font-medium text-accent transition-colors hover:text-accent-hover hover:underline active:text-accent-hover"
         >
           Verify credential
-          <ExternalLink className="size-4" aria-hidden="true" />
+          <ArrowUpRight className="size-4" aria-hidden="true" />
         </a>
       )}
     </article>
