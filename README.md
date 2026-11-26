@@ -82,56 +82,6 @@ The portfolio highlights my experience with backend development, database manage
 | DevOps | Linux, Docker, GitHub Actions |
 | Deployment | CI/CD, Cloud Infrastructure |
 
-## 📂 Project Structure
-
-```text
-my-portfolio/
-│
-├── public/
-│
-├── src/
-│   ├── app/
-│   │   ├── about/
-│   │   ├── contact/
-│   │   ├── experience/
-│   │   ├── projects/
-│   │   │   └── [slug]/
-│   │   ├── skills/
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx
-│   │
-│   ├── components/
-│   │   ├── animations/
-│   │   ├── certifications/
-│   │   ├── education/
-│   │   ├── experience/
-│   │   ├── layout/
-│   │   ├── projects/
-│   │   ├── sections/
-│   │   └── ui/
-│   │
-│   ├── data/
-│   │   ├── certifications.ts
-│   │   ├── education.ts
-│   │   ├── experience.ts
-│   │   ├── navigation.ts
-│   │   ├── profile.ts
-│   │   ├── projects.ts
-│   │   └── skills.ts
-│   │
-│   ├── hooks/
-│   ├── lib/
-│   └── types/
-│
-├── .gitignore
-├── package.json
-├── package-lock.json
-├── next.config.ts
-├── tsconfig.json
-└── README.md
-```
-
 ## 🚀 Getting Started
 
 Follow these instructions to run the project locally.
